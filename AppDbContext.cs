@@ -1,5 +1,4 @@
-﻿using Shared.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Entity_Framework
 {
@@ -10,7 +9,7 @@ namespace Entity_Framework
             options.UseSqlServer(Connections.ConnectionString);
         }
 
-        public DbSet<Shared.Models.Student> Students { get; set; }
+        public DbSet<Student> Students { get; set; }
         public DbSet<Department> Departments { get; set; }
     }
 }

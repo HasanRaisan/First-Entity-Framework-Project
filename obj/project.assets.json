@@ -1601,16 +1601,6 @@
             "rid": "win"
           }
         }
-      },
-      "Shared/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/Shared.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Shared.dll": {}
-        }
       }
     }
   },
@@ -4722,19 +4712,14 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "Shared/1.0.0": {
-      "type": "project",
-      "path": "../ClassLibrary1/Shared.csproj",
-      "msbuildProject": "../ClassLibrary1/Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "C:\\Programming\\Projects\\Entity Framewrok Core\\ClassLibrary1\\Shared.csproj",
       "Microsoft.EntityFrameworkCore >= 9.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.8",
-      "Microsoft.EntityFrameworkCore.Tools >= 9.0.8",
-      "Shared >= 1.0.0"
+      "Microsoft.EntityFrameworkCore.Tools >= 9.0.8"
     ]
   },
   "packageFolders": {
@@ -4743,11 +4728,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\Entity Framework.csproj",
+      "projectUniqueName": "C:\\Programming\\Projects\\Entity Framewrok Core\\Entity Framework\\Entity Framework.csproj",
       "projectName": "Entity Framework",
-      "projectPath": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\Entity Framework.csproj",
+      "projectPath": "C:\\Programming\\Projects\\Entity Framewrok Core\\Entity Framework\\Entity Framework.csproj",
       "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\obj\\",
+      "outputPath": "C:\\Programming\\Projects\\Entity Framewrok Core\\Entity Framework\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4765,8 +4750,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\lenovo\\source\\repos\\ClassLibrary1\\Shared.csproj": {
-              "projectPath": "C:\\Users\\lenovo\\source\\repos\\ClassLibrary1\\Shared.csproj"
+            "C:\\Programming\\Projects\\Entity Framewrok Core\\ClassLibrary1\\Shared.csproj": {
+              "projectPath": "C:\\Programming\\Projects\\Entity Framewrok Core\\ClassLibrary1\\Shared.csproj"
             }
           }
         }
@@ -4820,5 +4805,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\Programming\\Projects\\Entity Framewrok Core\\ClassLibrary1\\Shared.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "C:\\Programming\\Projects\\Entity Framewrok Core\\ClassLibrary1\\Shared.csproj",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

@@ -1,21 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\",
+  "WorkspaceRootPath": "C:\\Programming\\Projects\\Entity Framework\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lenovo\\source\\repos\\Entity Framework\\Migrations\\20250904093256_Department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250904093256_Department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lenovo\\source\\repos\\Entity Framework\\Migrations\\20250904093256_Department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A58E831-5838-4002-A876-5D2D3493F7B0}|Entity Framework.csproj|c:\\users\\lenovo\\source\\repos\\entity framework\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2A58E831-5838-4002-A876-5D2D3493F7B0}|Entity Framework.csproj|c:\\programming\\projects\\entity framework\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2A58E831-5838-4002-A876-5D2D3493F7B0}|Entity Framework.csproj|solutionrelative:appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8F61768-C8CB-41ED-8601-01E1FCD9AE82}|..\\ClassLibrary1\\Shared.csproj|c:\\users\\lenovo\\source\\repos\\classlibrary1\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2A58E831-5838-4002-A876-5D2D3493F7B0}|Entity Framework.csproj|c:\\programming\\projects\\entity framework\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A58E831-5838-4002-A876-5D2D3493F7B0}|Entity Framework.csproj|solutionrelative:migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A58E831-5838-4002-A876-5D2D3493F7B0}|Entity Framework.csproj|c:\\users\\lenovo\\source\\repos\\entity framework\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2A58E831-5838-4002-A876-5D2D3493F7B0}|Entity Framework.csproj|solutionrelative:migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lenovo\\source\\repos\\ClassLibrary1\\Models\\Department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,52 +47,47 @@
               "DocumentIndex": 0,
               "Title": "20250904093256_Department.cs",
               "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\Migrations\\20250904093256_Department.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250904093256_Department.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\lenovo\\source\\repos\\Entity Framework\\Migrations\\20250904093256_Department.cs",
               "ToolTip": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\Migrations\\20250904093256_Department.cs",
-              "RelativeToolTip": "Migrations\\20250904093256_Department.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\Users\\lenovo\\source\\repos\\Entity Framework\\Migrations\\20250904093256_Department.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T09:32:56.305Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Department.cs",
-              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\ClassLibrary1\\Models\\Department.cs",
-              "RelativeDocumentMoniker": "..\\ClassLibrary1\\Models\\Department.cs",
-              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\ClassLibrary1\\Models\\Department.cs",
-              "RelativeToolTip": "..\\ClassLibrary1\\Models\\Department.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T09:28:49.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T09:32:56.305Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Department.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\ClassLibrary1\\Models\\Department.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\lenovo\\source\\repos\\ClassLibrary1\\Models\\Department.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\ClassLibrary1\\Models\\Department.cs",
+              "RelativeToolTip": "..\\..\\..\\Users\\lenovo\\source\\repos\\ClassLibrary1\\Models\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T09:28:49.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AppDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\Migrations\\AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Programming\\Projects\\Entity Framework\\Migrations\\AppDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "Migrations\\AppDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Programming\\Projects\\Entity Framework\\Migrations\\AppDbContextModelSnapshot.cs",
               "RelativeToolTip": "Migrations\\AppDbContextModelSnapshot.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T08:31:24.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T08:31:24.387Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\AppDbContext.cs",
+              "DocumentMoniker": "C:\\Programming\\Projects\\Entity Framework\\AppDbContext.cs",
               "RelativeDocumentMoniker": "AppDbContext.cs",
-              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\Entity Framework\\AppDbContext.cs",
+              "ToolTip": "C:\\Programming\\Projects\\Entity Framework\\AppDbContext.cs",
               "RelativeToolTip": "AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T07:41:33.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T07:41:33.043Z"
             }
           ]
         }
