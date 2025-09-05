@@ -4,6 +4,7 @@ using Entity_Framework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity_Framework.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250905094051_otm_rel")]
+    partial class otm_rel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,30 +24,6 @@ namespace Entity_Framework.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Entity_Framework.Models.Book", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Books");
-                });
 
             modelBuilder.Entity("Entity_Framework.Models.Department", b =>
                 {
@@ -129,32 +108,6 @@ namespace Entity_Framework.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("Entity_Framework.Models.StudentBook", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("bookId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("getDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("studentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("bookId");
-
-                    b.HasIndex("studentId");
-
-                    b.ToTable("StudentBooks");
-                });
-
             modelBuilder.Entity("Entity_Framework.Models.Grade", b =>
                 {
                     b.HasOne("Entity_Framework.Models.Student", "Student")
@@ -177,30 +130,6 @@ namespace Entity_Framework.Migrations
                     b.Navigation("department");
                 });
 
-            modelBuilder.Entity("Entity_Framework.Models.StudentBook", b =>
-                {
-                    b.HasOne("Entity_Framework.Models.Book", "book")
-                        .WithMany("Students")
-                        .HasForeignKey("bookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entity_Framework.Models.Student", "student")
-                        .WithMany("Books")
-                        .HasForeignKey("studentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("book");
-
-                    b.Navigation("student");
-                });
-
-            modelBuilder.Entity("Entity_Framework.Models.Book", b =>
-                {
-                    b.Navigation("Students");
-                });
-
             modelBuilder.Entity("Entity_Framework.Models.Department", b =>
                 {
                     b.Navigation("Students");
@@ -208,8 +137,6 @@ namespace Entity_Framework.Migrations
 
             modelBuilder.Entity("Entity_Framework.Models.Student", b =>
                 {
-                    b.Navigation("Books");
-
                     b.Navigation("grade")
                         .IsRequired();
                 });

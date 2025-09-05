@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "t6HJiH0tNDo=",
-  "success": false,
+  "dgSpecHash": "j0ml5uRuyiE=",
+  "success": true,
   "projectFilePath": "C:\\Programming\\Projects\\Entity Framewrok Core\\Entity Framework\\Entity Framework.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lenovo\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
@@ -84,15 +84,5 @@
     "C:\\Users\\lenovo\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Programming\\Projects\\Entity Framewrok Core\\ClassLibrary1\\Shared.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Programming\\Projects\\Entity Framewrok Core\\ClassLibrary1\\Shared.csproj",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }
