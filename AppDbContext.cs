@@ -15,6 +15,10 @@ namespace Entity_Framework
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<StudentBook> StudentBooks { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Department>().Property(x => x.desc).IsRequired();
+        }
 
     }
 }
