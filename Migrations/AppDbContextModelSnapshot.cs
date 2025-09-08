@@ -22,6 +22,28 @@ namespace Entity_Framework.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Entity_Framework.Models.Attendance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("DayName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("studentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("studentId");
+
+                    b.ToTable("Attendance");
+                });
+
             modelBuilder.Entity("Entity_Framework.Models.Book", b =>
                 {
                     b.Property<int>("Id")
@@ -59,7 +81,6 @@ namespace Entity_Framework.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("desc")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -76,7 +97,7 @@ namespace Entity_Framework.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("StudentId")
+                    b.Property<int?>("StudentId")
                         .HasColumnType("int");
 
                     b.Property<string>("chemistry")
@@ -94,7 +115,8 @@ namespace Entity_Framework.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("StudentId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[StudentId] IS NOT NULL");
 
                     b.ToTable("Grades");
                 });
@@ -117,7 +139,7 @@ namespace Entity_Framework.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GradeID")
+                    b.Property<int>("Grade")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -160,13 +182,23 @@ namespace Entity_Framework.Migrations
                     b.ToTable("StudentBooks");
                 });
 
+            modelBuilder.Entity("Entity_Framework.Models.Attendance", b =>
+                {
+                    b.HasOne("Entity_Framework.Models.Student", "student")
+                        .WithMany("attendances")
+                        .HasForeignKey("studentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("student");
+                });
+
             modelBuilder.Entity("Entity_Framework.Models.Grade", b =>
                 {
                     b.HasOne("Entity_Framework.Models.Student", "Student")
                         .WithOne("grade")
                         .HasForeignKey("Entity_Framework.Models.Grade", "StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Student");
                 });
@@ -176,7 +208,7 @@ namespace Entity_Framework.Migrations
                     b.HasOne("Entity_Framework.Models.Department", "department")
                         .WithMany("Students")
                         .HasForeignKey("departmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("department");
@@ -187,13 +219,13 @@ namespace Entity_Framework.Migrations
                     b.HasOne("Entity_Framework.Models.Book", "book")
                         .WithMany("Students")
                         .HasForeignKey("bookId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Entity_Framework.Models.Student", "student")
                         .WithMany("Books")
                         .HasForeignKey("studentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("book");
@@ -214,6 +246,8 @@ namespace Entity_Framework.Migrations
             modelBuilder.Entity("Entity_Framework.Models.Student", b =>
                 {
                     b.Navigation("Books");
+
+                    b.Navigation("attendances");
 
                     b.Navigation("grade")
                         .IsRequired();

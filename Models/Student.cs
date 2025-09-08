@@ -10,16 +10,14 @@ namespace Entity_Framework.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public int Age { get; set; }
-
-        [ForeignKey("Grade")]
-        public int GradeID { get; set; }
+        public int Grade { get; set; }
         public DateTime Birthdate { get; set; }
-
         [ForeignKey("Department")]
         public int departmentId { get; set; }
         public Grade grade { get; set; }
         public Department department { get; set; }
-
         public ICollection<StudentBook> Books { get; set; }
+        //[NotMapped]
+        //public ICollection<Attendance> attendances { get; set; }
     }
 }

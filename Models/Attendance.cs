@@ -8,17 +8,15 @@ using System.Threading.Tasks;
 
 namespace Entity_Framework.Models
 {
-    public class Grade
+    public class Attendance
     {
         [Key]
         public int Id { get; set; }
-        public string physics { get; set; }
-        public string chemistry { get; set; }
-        public string programming { get; set; }
+        public string DayName { get; set; }
 
         [ForeignKey("Student")]
-        public int? StudentId { get; set; }
-        //[Required]
-        public Student Student { get; set; }
+        public int studentId { get; set; }
+
+        public Student student { get; set; }
     }
 }

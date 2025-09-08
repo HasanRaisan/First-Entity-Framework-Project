@@ -18,5 +18,7 @@ namespace Entity_Framework.Models
         public int bookId { get; set; }
         public Book book { get; set; }
         public DateTime getDate { get; set; }
+
+
     }
 }
