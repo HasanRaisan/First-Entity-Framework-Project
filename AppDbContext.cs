@@ -63,6 +63,13 @@ namespace Entity_Framework
             modelBuilder.Entity<Book>().Property(x => x.DeiveryOrder).HasDefaultValueSql("Next Value For DeiveryOrder");
             modelBuilder.Entity<Uniform>().Property(x => x.DeiveryOrder).HasDefaultValueSql("Next Value For DeiveryOrder");
 
+            modelBuilder.Entity<Gender>().HasData(new Gender() { Id = 1, genderName = "Male" } 
+                         ,new Gender() { Id = 2, genderName = "Female"});
+            // seed table date must be implemented befor the tables that use it as forgien key.
+            // ?? search about (seed), it's not used a lot.
+
+
+
         }
     }
 }
