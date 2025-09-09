@@ -3,8 +3,6 @@ using Entity_Framework;
 using Entity_Framework.Models;
 using System.ComponentModel.DataAnnotations;
 
-Console.WriteLine("Hello, World!");
-
 using var db = new AppDbContext();
 
 var department = new Department()
@@ -30,6 +28,7 @@ else
 
 
 
+
 //var department = db.Departments.Find(1);
 //if (department != null)
 //{
@@ -46,6 +45,19 @@ else
 
 
 
+//var book = new Book()
+//{
+//    Name = "Psychology",
+//    Author = "Bank Clinet",
+//    Created = DateTime.Now,
+//};
 
-
+//db.Books.Add(book);
+var uniform = new Uniform()
+{
+    Name = "light blue",
+    Created = DateTime.Now
+};
+db.Uniforms.Add(uniform);
+db.SaveChanges();
 

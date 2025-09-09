@@ -15,13 +15,17 @@ namespace Entity_Framework
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<StudentBook> StudentBooks { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Uniform> Uniforms { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<Department>().Property(x => x.desc).IsRequired();
             //modelBuilder.Entity<Department>()
             //    .HasMany(s => s.Students)
             //    .WithOne(d => d.department)
-            //    .OnDelete(DeleteBehavior.Restrict);
+            //    .OnDelete(Dele++te++++++++++++q1qw    +Behavior.Restrict);
 
             //modelBuilder.Entity<Student>()
             //    .HasOne(d => d.grade)
@@ -42,7 +46,24 @@ namespace Entity_Framework
             //public ICollection<Attendance> attendances { get; set; }
             //modelBuilder.Entity<Attendance>().ToTable("atts", a => a.ExcludeFromMigrations());
 
+            modelBuilder.Entity<Invoice>().Property(x => x.quantity)
+                .HasDefaultValue(1);
+            modelBuilder.Entity<Invoice>().Property(x => x.createdDate)
+                .HasDefaultValueSql("GETDATE()");
+
+            modelBuilder.Entity<Invoice>().Property(x => x.fullName)
+                .HasComputedColumnSql("[customerTitle] + ' ' + [customerName]");
+
+            modelBuilder.Entity<Invoice>().Property(x => x.total)
+                 .HasComputedColumnSql("[price] + ' ' + [quantity]");
+
+            modelBuilder.Entity<Student>().HasIndex(s => s.Name).IsUnique().HasFilter("Name is not null");
+
+            modelBuilder.HasSequence<int>("DeiveryOrder").StartsAt(103).IncrementsBy(1);
+            modelBuilder.Entity<Book>().Property(x => x.DeiveryOrder).HasDefaultValueSql("Next Value For DeiveryOrder");
+            modelBuilder.Entity<Uniform>().Property(x => x.DeiveryOrder).HasDefaultValueSql("Next Value For DeiveryOrder");
 
         }
     }
 }
+ 

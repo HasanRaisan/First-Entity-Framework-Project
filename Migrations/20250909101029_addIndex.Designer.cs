@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity_Framework.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250908181043_init")]
-    partial class init
+    [Migration("20250909101029_addIndex")]
+    partial class addIndex
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,10 @@ namespace Entity_Framework.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("theName");
+
                     b.Property<int>("studentId")
                         .HasColumnType("int");
 
@@ -44,7 +48,7 @@ namespace Entity_Framework.Migrations
 
                     b.HasIndex("studentId");
 
-                    b.ToTable("Attendance");
+                    b.ToTable("StudentsAtts", "std");
                 });
 
             modelBuilder.Entity("Entity_Framework.Models.Book", b =>
@@ -124,6 +128,52 @@ namespace Entity_Framework.Migrations
                     b.ToTable("Grades");
                 });
 
+            modelBuilder.Entity("Entity_Framework.Models.Invoice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("createdDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("customerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("customerTitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("fullName")
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComputedColumnSql("[customerTitle] + ' ' + [customerName]");
+
+                    b.Property<decimal>("price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("quantity")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValue(1m);
+
+                    b.Property<string>("total")
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComputedColumnSql("[price] + ' ' + [quantity]");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Invoices");
+                });
+
             modelBuilder.Entity("Entity_Framework.Models.Student", b =>
                 {
                     b.Property<int>("Id")
@@ -147,12 +197,15 @@ namespace Entity_Framework.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("departmentId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.HasIndex("departmentId");
 

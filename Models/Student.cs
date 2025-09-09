@@ -1,8 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity_Framework.Models
 {
+    //[Index("Name", "Email")]
+    //[Index("Name", Name = "")]
+    //[Index("Name", isUnique = true)]
     public class Student
     {
         [Key]
@@ -18,6 +22,6 @@ namespace Entity_Framework.Models
         public Department department { get; set; }
         public ICollection<StudentBook> Books { get; set; }
         //[NotMapped]
-        //public ICollection<Attendance> attendances { get; set; }
+        public ICollection<Attendance> attendances { get; set; }
     }
 }
