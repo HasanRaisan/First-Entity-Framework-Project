@@ -18,10 +18,10 @@ namespace Entity_Framework.Models
         public DateTime Birthdate { get; set; }
         [ForeignKey("Department")]
         public int departmentId { get; set; }
-        public Grade grade { get; set; }
-        public Department department { get; set; }
-        public ICollection<StudentBook> Books { get; set; }
+        public virtual Grade grade { get; set; }
+        public virtual Department department { get; set; }
+        public virtual ICollection<StudentBook> Books { get; set; }
         //[NotMapped]
-        public ICollection<Attendance> attendances { get; set; }
+        public virtual ICollection<Attendance> attendances { get; set; }
     }
 }

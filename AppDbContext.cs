@@ -7,7 +7,7 @@ namespace Entity_Framework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(Connections.ConnectionString);
+            options.UseLazyLoadingProxies().UseSqlServer(Connections.ConnectionString);
         }
 
         public DbSet<Student> Students { get; set; }

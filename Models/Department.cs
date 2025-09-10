@@ -11,6 +11,9 @@ namespace Entity_Framework.Models
         //[Required]
         [MaxLength(50, ErrorMessage = "Maximum Lenth is 10 charchters")]
         public string? desc { get; set; }
-        public ICollection<Student> Students { get; set; }
+        [MaxLength(5, ErrorMessage = "Maximum Lenth is 10 charchters")]
+
+        public string nume { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

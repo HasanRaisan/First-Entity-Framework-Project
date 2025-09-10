@@ -23,7 +23,7 @@ namespace Entity_Framework.Models
         [ForeignKey("Student")]
         public int studentId { get; set; }
 
-        public Student student { get; set; }
+        public virtual Student student { get; set; }
 
         [NotMapped]
         public DateTime date_absnes { get; set; }

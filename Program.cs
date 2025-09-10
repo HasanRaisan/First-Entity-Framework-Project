@@ -6,39 +6,140 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 using var db = new AppDbContext();
-
-
 int i = 0;
 
-//var dep = db.Departments.FirstOrDefault(x => x.Id == 4);
-//dep.desc = "traking test 2";
+ using var transaction = db.Database.BeginTransaction();
+//try
+//{
+//    db.Departments.Add(new Department { Name = "tarna 33", desc = "edc1" });
+//    db.SaveChanges();
+//    db.Departments.Add(new Department { Name = "tarna 22", desc = "edcjjghghghg" });
+//    db.SaveChanges();
+//    transaction.Commit();
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine(ex.Message);
+//    transaction.Rollback();
+//}
 
 
-// all tables with db is not traking
-//db.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; 
-// .AsNoTracking()
-var dep = db.Departments.FirstOrDefault(x => x.Id == 4);
-// as no tracking is faster than with tracking, 30% faster
-dep.desc = "traking test 9";
-
-var track = db.ChangeTracker.Entries();
-foreach (var t in track)
+try
 {
-    Console.WriteLine($" track 1 {t.Entity.ToString()} - {t.State}");
-    t.State = EntityState.Detached;
+    db.Departments.Add(new Department { Name = "tarna qqq", desc = "edc" , nume = "123"});
+    db.SaveChanges();
+    db.Departments.Add(new Department { Name = "tarna qq2", desc = "edc412366955452331", nume = "123" });
+    db.SaveChanges();
+    transaction.CreateSavepoint("data_ok");
+    db.Departments.Add(new Department { Name = "tarna 33", desc = "edc1" });
+    db.SaveChanges();
+    db.Departments.Add(new Department { Name = "tarna 22", desc = "edcjjghghghg" });
+    db.SaveChanges();
+    transaction.Commit();
 }
-if (track.Any())
+catch (Exception ex)
+{
+    Console.WriteLine("11111111111111" + ex.Message + "\n\n");
+    //transaction.Rollback();
+    try
+    {
+        transaction.RollbackToSavepoint("data_ok");
+        transaction.Commit();
+    }
+    catch (Exception l2Ex)
+    {
+        transaction.Rollback();
+        Console.WriteLine("22222222222222" + l2Ex.Message + "\n\n");
 
+
+    }
+}
+
+
+
+
+// lazy 
+/*
+var stu = db.Students.SingleOrDefault(s => s.Id == 1);
+Console.WriteLine(stu.department.Name);
+foreach ( var bo in stu.Books)
+{
+    Console.WriteLine("stuID:" + bo.studentId); // from include [Books]
+    Console.WriteLine("Book name: " + bo.book.Name); // from then include [StuBook]
+
+}
+*/
+i++;
+//Explicit Loading of Related Data
+/*
+var stu = db.Students.SingleOrDefault(s => s.Id == 1);
+db.Entry(stu).Reference(d => d.department).Load();
+Console.WriteLine(stu.department.Name);
+
+//db.Entry(stu).Collection(st => st.Books).Load(); // The property 'Student.Books' is being accessed using the 'Reference' method, but is defined in the model as a collection navigation. Use the 'Collection' method to access collection navigations.'
+db.Entry(stu).Collection(st => st.Books).Query().Where(x => x.Id == 1).ToList();
+// .Query() + .ToList() = تنفيذ مباشر
+// → ما تحتاجش Load().
+stu.Books.ToList().ForEach
+(StuBook =>
+{
+    Console.WriteLine(StuBook.Id);
+    db.Entry(StuBook).Reference(d => d.book).Load();
+    Console.WriteLine(StuBook.book.Name);
+}
+
+);
+*/
+i = 0;
+
+// Eagar Data Lodaing
+/*
+var stu = db.Students.Include(StuBook => StuBook.department).
+    Include(b => b.Books).ThenInclude(sb => sb.StuBook)
+    .SingleOrDefault(s => s.Id == 1);
+Console.WriteLine(stu.department.Name);
+foreach ( var bo in stu.Books)
+{
+    Console.WriteLine("stuID:" + bo.studentId); // from include [Books]
+    Console.WriteLine("Book name: " + bo.StuBook.Name); // from then include [StuBook]
+
+}
+*/
+
+i = 0;
+// tracking
+ /*
+    //var dep = db.Departments.FirstOrDefault(x => x.Id == 4);
+    //dep.desc = "traking test 2";
+
+
+    // all tables with db is not traking
+    //db.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; 
+    // .AsNoTracking()
+    var dep = db.Departments.FirstOrDefault(x => x.Id == 4);
+    // as no tracking is faster than with tracking, 30% faster
+    dep.desc = "traking test 9";
+
+    var track = db.ChangeTracker.Entries();
     foreach (var t in track)
     {
-        Console.WriteLine($" track 2 {t.Entity.ToString()} - {t.State}");
+        Console.WriteLine($" track 1 {t.Entity.ToString()} - {t.State}");
+        t.State = EntityState.Detached;
     }
-else Console.WriteLine("not tarck ");
+    if (track.Any())
+    {
+        foreach (var t in track)
+        {
+            Console.WriteLine($" track 2 {t.Entity.ToString()} - {t.State}");
+        }
+    }
+    else Console.WriteLine("not tarck ");
 
-    //db.SaveChanges();
+    */
+ i = 0;
 
-    // delete
-    /*
+// delete
+/*
     var stu = db.Students.Find(3);
     db.Students.Remove(stu); // check nuallable
 
@@ -47,7 +148,7 @@ else Console.WriteLine("not tarck ");
 
     */
 
-    i = i = 0;
+ i = i = 0;
 // update
 /*
 var stu = new Student()

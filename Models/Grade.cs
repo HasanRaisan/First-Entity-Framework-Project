@@ -19,6 +19,6 @@ namespace Entity_Framework.Models
         [ForeignKey("Student")]
         public int? StudentId { get; set; }
         //[Required]
-        public Student Student { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

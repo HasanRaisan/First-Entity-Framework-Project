@@ -15,7 +15,7 @@ namespace Entity_Framework.Models
         public string Name { get; set; }
         public string Author { get; set; }
         public DateTime Created { get; set; }
-        public ICollection<StudentBook> Students { get; set; }
+        public virtual ICollection<StudentBook> Students { get; set; }
         public int DeiveryOrder { get; set; }
     }
 }

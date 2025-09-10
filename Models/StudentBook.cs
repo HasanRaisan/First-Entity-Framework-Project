@@ -13,10 +13,10 @@ namespace Entity_Framework.Models
 
         [ForeignKey("Student")]
         public int studentId { get; set; }
-        public Student student { get; set; }
+        public virtual Student student { get; set; }
         [ForeignKey("Book")]
         public int bookId { get; set; }
-        public Book book { get; set; }
+        public virtual Book book { get; set; }
         public DateTime getDate { get; set; }
 
 
