@@ -2,11 +2,52 @@
 using Azure;
 using Entity_Framework;
 using Entity_Framework.Models;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 using var db = new AppDbContext();
 
 
+int i = 0;
+
+//var dep = db.Departments.FirstOrDefault(x => x.Id == 4);
+//dep.desc = "traking test 2";
+
+
+// all tables with db is not traking
+//db.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; 
+// .AsNoTracking()
+var dep = db.Departments.FirstOrDefault(x => x.Id == 4);
+// as no tracking is faster than with tracking, 30% faster
+dep.desc = "traking test 9";
+
+var track = db.ChangeTracker.Entries();
+foreach (var t in track)
+{
+    Console.WriteLine($" track 1 {t.Entity.ToString()} - {t.State}");
+    t.State = EntityState.Detached;
+}
+if (track.Any())
+
+    foreach (var t in track)
+    {
+        Console.WriteLine($" track 2 {t.Entity.ToString()} - {t.State}");
+    }
+else Console.WriteLine("not tarck ");
+
+    //db.SaveChanges();
+
+    // delete
+    /*
+    var stu = db.Students.Find(3);
+    db.Students.Remove(stu); // check nuallable
+
+    var list = db.Students.Where(x=> x.departmentId == 4).ToList();
+    db.Students.RemoveRange(list);
+
+    */
+
+    i = i = 0;
 // update
 /*
 var stu = new Student()
@@ -24,7 +65,7 @@ var stu = new Student()
 db.Entry(db.Students.Find(4)).CurrentValues.SetValues(stu);
 db.Entry(db.Students.Find(4)).Property(p => p.Name).IsModified = false;
 db.SaveChanges();
-*/
+
 
 var departments2 = new List<Department>()
 {
@@ -54,7 +95,9 @@ var departments2 = new List<Department>()
 
 db.Departments.UpdateRange(departments2);
 db.SaveChanges();
+*/
 
+i = i + 1;
 // errors
 /*
 //var department = new Department()
@@ -104,7 +147,7 @@ db.SaveChanges();
 
 */
 
-
+i = i + 2;
 // add
 /*
 var departments = new List<Department>()
